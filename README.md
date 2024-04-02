@@ -8,11 +8,14 @@
     <img src="https://img.shields.io/github/commit-activity/m/stefansphtr/Deep-Learning-Regression-with-Admissions-Data" alt="Commit Activity Badge">
     <img src="https://img.shields.io/github/repo-size/stefansphtr/Deep-Learning-Regression-with-Admissions-Data" alt="Repo Size Badge">
     <img src="https://www.codefactor.io/repository/github/stefansphtr/Deep-Learning-Regression-with-Admissions-Data/badge" alt="CodeFactor" />
+    <img src="https://img.shields.io/badge/TensorFlow-2.16.1-FF6F00?logo=tensorflow" alt="TensorFlow Badge">
+    <img src="https://img.shields.io/badge/Keras-3.1.1-D00000?logo=keras" alt="Keras Badge">
   </a>
 </p>
 
 # BUILD DEEP LEARNING REGRESSION MODELS WITH TENSORFLOW
 ---
+![TensorFlow Banner](./src/images/TensorFlow_Banner.jpg)
 
 ## Project Goal
 The goal of this project is to create a deep learning regression model that predicts the likelihood that a student applying to graduate school will be accepted based on various application factors (such as test scores).
