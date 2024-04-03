@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def plot_distribution(data, column, title, xlabel, ylabel, figsize=(10, 6)):
+def plot_distribution(data, column, title, xlabel, ylabel, num_bins=30, figsize=(10, 6)):
     """
     This function plots the distribution of a given column from a DataFrame.
 
@@ -13,6 +13,7 @@ def plot_distribution(data, column, title, xlabel, ylabel, figsize=(10, 6)):
     title (str): The title of the plot.
     xlabel (str): The label for the x-axis.
     ylabel (str): The label for the y-axis.
+    num_bins (int): The number of bins to use in the histogram.
     figsize (tuple): The size of the figure (default is (10, 6)).
 
     Returns:
@@ -22,7 +23,7 @@ def plot_distribution(data, column, title, xlabel, ylabel, figsize=(10, 6)):
     fig, ax = plt.subplots(figsize=figsize)
 
     # Plot the distribution of the specified column
-    sns.histplot(data[column], kde=False, ax=ax, color='skyblue', edgecolor='black', bins=30)
+    sns.histplot(data[column], kde=False, ax=ax, color='skyblue', edgecolor='black', bins=num_bins)
 
     # Remove the left spine for aesthetic purposes
     sns.despine(left=True)
