@@ -92,3 +92,22 @@ def percentage(dataframe):
 
     # Display the plot
     plt.show()
+    
+def categorize_score(score):
+    """
+    Categorize GRE scores into four categories: 'Excellent', 'Good', 'Average', and 'Below Average'.
+    
+    Parameters:
+    score (int): The GRE score to categorize.
+
+    Returns:
+    str: The category of the score.
+    """
+    if score >= 162:
+        return 'Excellent'
+    elif score >= 152:
+        return 'Good'
+    elif score >= 147:
+        return 'Average'
+    else:
+        return 'Below Average'
