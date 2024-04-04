@@ -23,7 +23,7 @@ def plot_distribution(data, column, title, xlabel, ylabel, num_bins=30, figsize=
     fig, ax = plt.subplots(figsize=figsize)
 
     # Plot the distribution of the specified column
-    sns.histplot(data[column], kde=False, ax=ax, color='skyblue', edgecolor='black', bins=num_bins)
+    sns.histplot(data[column], kde=False, ax=ax, color='skyblue', edgecolor='#000c66', bins=num_bins)
 
     # Remove the left spine for aesthetic purposes
     sns.despine(left=True)
