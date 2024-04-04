@@ -103,11 +103,11 @@ def categorize_score(score):
     Returns:
     str: The category of the score.
     """
-    if score >= 162:
+    if score >= 325:
         return 'Excellent'
-    elif score >= 152:
+    elif score >= 317:
         return 'Good'
-    elif score >= 147:
+    elif score >= 308:
         return 'Average'
     else:
         return 'Below Average'
