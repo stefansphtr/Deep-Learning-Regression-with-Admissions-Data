@@ -111,3 +111,34 @@ def categorize_score(score):
         return 'Average'
     else:
         return 'Below Average'
+    
+def plot_binary_feature_count(df, feature):
+    """
+    Plot a countplot for a binary feature in a DataFrame.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing the feature.
+    feature (str): The name of the feature to plot.
+
+    """
+    
+    # Create a figure for the plot
+    plt.figure(figsize=(10,6))
+    
+    # Create a countplot for the feature
+    sns.countplot(x=feature, data=df, palette='viridis', hue=feature, legend=False)
+    
+    # Remove the top and right spines from the plot
+    sns.despine(left=True)
+    
+    # Set the title, x-label, and y-label of the plot
+    plt.title(f'Countplot of {feature.capitalize()}', fontsize=20)
+    plt.xlabel(feature.capitalize(),fontsize=15)
+    plt.ylabel('Count',fontsize=15)
+    
+    # Set the font size for the x and y ticks
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    
+    # Display the plot
+    plt.show()
