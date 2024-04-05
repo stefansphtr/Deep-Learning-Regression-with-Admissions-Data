@@ -142,3 +142,45 @@ def plot_binary_feature_count(df, feature):
     
     # Display the plot
     plt.show()
+    
+def plot_correlation(df, feature, target, hue=None):
+    """
+    Plot the correlation between a feature and a target variable.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing the feature and target.
+    feature (str): The name of the feature to plot.
+    target (str): The name of the target variable to plot.
+    hue (str, optional): The name of the variable to color code.
+    """
+    # Create a figure for the plot
+    plt.figure(figsize=(10, 6))
+
+    # Create a scatterplot for the feature and target
+    sns.scatterplot(x=feature, y=target, hue=hue, data=df,
+                    palette='coolwarm', edgecolor='black')
+
+    # Remove the top and right spines from the plot
+    sns.despine(left=True)
+
+    # Format the feature and target names for the plot title and labels
+    feature_name = ' '.join(word.capitalize() for word in feature.split('_'))
+    target_name = ' '.join(word.capitalize() for word in target.split('_'))
+
+    # Format the hue name for the legend title
+    if hue:
+        hue_name = ' '.join(word.capitalize() for word in hue.split('_'))
+        plt.legend(title=hue_name)
+
+    # Set the title, x-label, and y-label of the plot
+    plt.title(f'Correlation between {feature_name} and {target_name}',
+              fontsize=20)
+    plt.xlabel(feature_name, fontsize=15)
+    plt.ylabel(target_name, fontsize=15)
+
+    # Set the font size for the x and y ticks
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    # Display the plot
+    plt.show()
