@@ -41,22 +41,22 @@ def plot_distribution(data, column, title, xlabel, ylabel, num_bins=30, figsize=
     # Display the plot
     plt.show()
     
-def percentage(dataframe):
+def percentage(data):
     """
     This function calculates the percentage of missing values in each column of a DataFrame 
     and plots a bar chart of the results.
 
     Parameters:
-    dataframe (pandas.DataFrame): The DataFrame to analyze.
+    data (pandas.DataFrame): The DataFrame to analyze.
 
     Returns:
     None. The function displays the plot but does not return any value.
     """
     # Calculate the percentage of missing values in each column
-    missing = dataframe.isnull().sum() * 100 / len(dataframe)
+    missing = data.isnull().sum() * 100 / len(data)
 
     # Create a DataFrame with the results
-    percentage_missing = pd.DataFrame({'column': dataframe.columns,
+    percentage_missing = pd.DataFrame({'column': data.columns,
                                        'missing_percentage %': missing.values})
 
     # Round the percentages to two decimal places
@@ -112,12 +112,12 @@ def categorize_score(score):
     else:
         return 'Below Average'
     
-def plot_binary_feature_count(df, feature):
+def plot_binary_feature_count(data, feature):
     """
     Plot a countplot for a binary feature in a DataFrame.
 
     Parameters:
-    df (pandas.DataFrame): The DataFrame containing the feature.
+    data (pandas.DataFrame): The DataFrame containing the feature.
     feature (str): The name of the feature to plot.
 
     """
@@ -126,7 +126,7 @@ def plot_binary_feature_count(df, feature):
     plt.figure(figsize=(10,6))
     
     # Create a countplot for the feature
-    sns.countplot(x=feature, data=df, palette='viridis', hue=feature, legend=False)
+    sns.countplot(x=feature, data=data, palette='viridis', hue=feature, legend=False)
     
     # Remove the top and right spines from the plot
     sns.despine(left=True)
@@ -143,12 +143,12 @@ def plot_binary_feature_count(df, feature):
     # Display the plot
     plt.show()
     
-def plot_correlation(df, feature, target, hue=None):
+def plot_correlation(data, feature, target, hue=None):
     """
     Plot the correlation between a feature and a target variable.
 
     Parameters:
-    df (pandas.DataFrame): The DataFrame containing the feature and target.
+    data (pandas.DataFrame): The DataFrame containing the feature and target.
     feature (str): The name of the feature to plot.
     target (str): The name of the target variable to plot.
     hue (str, optional): The name of the variable to color code.
@@ -157,7 +157,7 @@ def plot_correlation(df, feature, target, hue=None):
     plt.figure(figsize=(10, 6))
 
     # Create a scatterplot for the feature and target
-    sns.scatterplot(x=feature, y=target, hue=hue, data=df,
+    sns.scatterplot(x=feature, y=target, hue=hue, data=data,
                     palette='coolwarm', edgecolor='black')
 
     # Remove the top and right spines from the plot
@@ -185,19 +185,19 @@ def plot_correlation(df, feature, target, hue=None):
     # Display the plot
     plt.show()
     
-def plot_heatmap(dataframe, title="Heatmap"):
+def plot_heatmap(data, title="Heatmap"):
     """
     This function plots a heatmap for the given dataframe.
 
     Parameters:
-    dataframe (pandas.DataFrame): The dataframe to plot.
+    data (pandas.DataFrame): The dataframe to plot.
     title (str): The title of the heatmap. Default is "Heatmap".
     """
     # Set the figure size
     plt.figure(figsize=(10, 8))
 
     # Plot the heatmap with correlation of dataframe's columns
-    sns.heatmap(dataframe.corr(), annot=True, fmt=".2f", cmap='coolwarm', cbar=True)
+    sns.heatmap(data.corr(), annot=True, fmt=".2f", cmap='coolwarm', cbar=True)
 
     # Set the title of the heatmap
     plt.title(title, fontsize=20)
