@@ -208,3 +208,40 @@ def plot_heatmap(dataframe, title="Heatmap"):
 
     # Display the plot
     plt.show()
+    
+def plot_countplot(data, x, hue=None, palette="Set1", title="Countplot", x_label="X", y_label="Count"):
+    """
+    This function plots a countplot for the given data using seaborn.
+
+    Parameters:
+    data (pandas.DataFrame): The dataframe to plot.
+    x (str): The column name to be used for the x-axis.
+    hue (str): The column name to be used for color encoding. Default is None.
+    palette (str): The color palette to use. Default is "Set1".
+    title (str): The title of the countplot. Default is "Countplot".
+    x_label (str): The label for the x-axis. Default is "X".
+    y_label (str): The label for the y-axis. Default is "Count".
+
+    Returns:
+    None
+    """
+    # Set the figure size
+    plt.figure(figsize=(10, 8))
+
+    # Create the countplot
+    sns.countplot(x=x, data=data, palette=palette, hue=hue)
+
+    # Remove the left spine for aesthetics
+    sns.despine(left=True)
+
+    # Set the title, x-label, and y-label
+    plt.title(title, fontsize=20)
+    plt.xlabel(x_label, fontsize=14)
+    plt.ylabel(y_label, fontsize=14)
+
+    # Set the fontsize of xticks and yticks
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+
+    # Display the plot
+    plt.show()
