@@ -298,3 +298,27 @@ def plot_piechart(data, column, title="Pie Chart", figsize=(10, 6)):
     
     # Display the plot
     plt.show()
+    
+def plot_heatmap(data, title="Heatmap"):
+    """
+    This function plots a heatmap for the given dataframe.
+
+    Parameters:
+    data (pandas.DataFrame): The dataframe to plot.
+    title (str): The title of the heatmap. Default is "Heatmap".
+    """
+    # Set the figure size
+    plt.figure(figsize=(10, 8))
+
+    # Plot the heatmap with correlation of dataframe's columns
+    sns.heatmap(data.corr(), annot=True, fmt=".2f", cmap='coolwarm', cbar=True)
+
+    # Set the title of the heatmap
+    plt.title(title, fontsize=20)
+
+    # Set the fontsize of xticks and yticks
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    # Display the plot
+    plt.show()
