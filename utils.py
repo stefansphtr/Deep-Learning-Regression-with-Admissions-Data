@@ -255,3 +255,46 @@ def plot_countplot(data, x, hue=None, title="Countplot", x_label="X", y_label="C
 
     # Display the plot
     plt.show()
+    
+def plot_piechart(data, column, title="Pie Chart", figsize=(10, 6)):
+    """
+    This function plots a pie chart of a given column from a DataFrame.
+
+    Parameters:
+    data (pandas.DataFrame): The DataFrame containing the data.
+    column (str): The column in the DataFrame to plot.
+    title (str): The title of the plot. Default is "Pie Chart".
+    figsize (tuple): The size of the figure (default is (10, 6)).
+
+    Returns:
+    None. The function displays the plot but does not return any value.
+    """
+    # Calculate the counts of unique values in the column
+    counts = data[column].value_counts()
+
+    # Map the labels
+    labels = counts.index.map({0: 'No', 1: 'Yes'})
+    
+    # Explode the largest pie chart
+    explode = [0.1 if freq == max(counts) else 0 for freq in counts]
+
+    # Create the pie chart
+    plt.figure(figsize=figsize)
+    plt.pie(
+        counts,
+        labels=labels,
+        autopct='%1.1f%%',
+        explode=explode,
+        startangle=140,
+        shadow=True,
+        colors=plt.cm.Dark2.colors
+    )
+
+    # Set the title of the plot
+    plt.title(title, fontsize=20)
+
+    # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.axis('equal')  
+    
+    # Display the plot
+    plt.show()
