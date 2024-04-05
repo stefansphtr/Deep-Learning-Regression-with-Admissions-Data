@@ -209,7 +209,7 @@ def plot_heatmap(data, title="Heatmap"):
     # Display the plot
     plt.show()
     
-def plot_countplot(data, x, hue=None, palette="Set1", title="Countplot", x_label="X", y_label="Count"):
+def plot_countplot(data, x, hue=None, title="Countplot", x_label="X", y_label="Count"):
     """
     This function plots a countplot for the given data using seaborn.
 
@@ -217,7 +217,6 @@ def plot_countplot(data, x, hue=None, palette="Set1", title="Countplot", x_label
     data (pandas.DataFrame): The dataframe to plot.
     x (str): The column name to be used for the x-axis.
     hue (str): The column name to be used for color encoding. Default is None.
-    palette (str): The color palette to use. Default is "Set1".
     title (str): The title of the countplot. Default is "Countplot".
     x_label (str): The label for the x-axis. Default is "X".
     y_label (str): The label for the y-axis. Default is "Count".
@@ -228,8 +227,14 @@ def plot_countplot(data, x, hue=None, palette="Set1", title="Countplot", x_label
     # Set the figure size
     plt.figure(figsize=(10, 8))
 
-    # Create the countplot
-    sns.countplot(x=x, data=data, palette=palette, hue=hue)
+    # Calculate the counts and sort them in descending order
+    order = data[x].value_counts().sort_values(ascending=False).index
+
+    # Create a color palette with the same number of colors as unique values in the x column
+    palette = sns.color_palette("viridis", len(order))
+    
+    # Create the countplot with 'viridis' palette
+    sns.countplot(x=x, data=data, palette=palette, hue=hue, order=order)
 
     # Remove the left spine for aesthetics
     sns.despine(left=True)
