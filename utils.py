@@ -234,6 +234,11 @@ def plot_countplot(data, x, hue=None, palette="Set1", title="Countplot", x_label
     # Remove the left spine for aesthetics
     sns.despine(left=True)
 
+    # Format the hue name for the legend title
+    if hue:
+        hue_name = ' '.join(word.capitalize() for word in hue.split('_'))
+        plt.legend(title=hue_name)
+    
     # Set the title, x-label, and y-label
     plt.title(title, fontsize=20)
     plt.xlabel(x_label, fontsize=14)
