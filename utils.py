@@ -322,3 +322,43 @@ def plot_heatmap(data, title="Heatmap"):
 
     # Display the plot
     plt.show()
+    
+def plot_train_cv_test(x_train, y_train, x_cv, y_cv, x_test, y_test, title):
+    """
+    This function plots the training, cross-validation, and test data.
+
+    Parameters:
+    x_train, y_train : Training data (features and target)
+    x_cv, y_cv : Cross-validation data (features and target)
+    x_test, y_test : Test data (features and target)
+    title : Title for the plot
+
+    Returns:
+    None
+    """
+    
+    # Set the figure size
+    plt.rcParams['figure.figsize'] = [10, 8]
+    
+    # Set the marker size
+    plt.rcParams['lines.markersize'] = 10
+    
+    # Plot training data in red with 'x' marker
+    plt.scatter(x_train, y_train, marker='x', color='red', label='training')
+    
+    # Plot cross-validation data in blue with 'o' marker
+    plt.scatter(x_cv, y_cv, marker='o', color='blue', label='cross validation')
+    
+    # Plot test data in green with '^' marker
+    plt.scatter(x_test, y_test, marker='^', color='green', label='test')
+    
+    # Set the title and labels
+    plt.title(title)
+    plt.xlabel("x")
+    plt.ylabel("y")
+    
+    # Show the legend
+    plt.legend()
+    
+    # Display the plot
+    plt.show()
