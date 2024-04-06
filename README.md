@@ -24,3 +24,13 @@ The goal of this project is to create a deep learning regression model that pred
 
 By analyzing the parameters in this graduate admissions dataset, I will use TensorFlow with Keras to create a regression model that can evaluate the chances of an applicant being admitted. This will give further insight into the graduate admissions world and improve test prep strategy.
 
+## Neural Network Architecture
+
+The neural network architecture consists of an input layer, two hidden layers, and an output layer. In this case the input layer used after evaluate the model is the model 1 consist of:
+
+1. Hidden Layer 1: 25 neurons, ReLU activation function
+2. Hidden Layer 2: 15 neurons, ReLU activation function
+3. Output Layer: 1 neuron, Linear activation function
+
+
+![Neural Network Architecture](./src/images/NN_Architecture.jpg)
