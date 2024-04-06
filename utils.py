@@ -1,7 +1,11 @@
+from pyexpat import model
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import tensorflow as tf
+from keras.models import Sequential
+from keras.layers import Dense
 
 def plot_distribution(data, column, title, xlabel, ylabel, num_bins=30, figsize=(10, 6)):
     """
@@ -362,3 +366,55 @@ def plot_train_cv_test(x_train, y_train, x_cv, y_cv, x_test, y_test, title):
     
     # Display the plot
     plt.show()
+    
+def build_models():
+    """
+    This function builds and returns a list of three different models. Each model is a Sequential model
+    with a different architecture. The models are named 'model1', 'model2', and 'model3' respectively.
+
+    Returns:
+        list: A list of Sequential models.
+    """
+    # Set the seed for random number generation in TensorFlow to ensure reproducibility
+    tf.random.set_seed(20)
+
+    # Define the architecture for the first model
+    model_1 = Sequential(
+        [
+            Dense(25, activation='relu'),
+            Dense(15, activation='relu'),
+            Dense(1, activation='linear')
+        ],
+        name = 'model1'
+    )
+
+    # Define the architecture for the second model
+    model_2 = Sequential(
+        [
+            Dense(20, activation='relu'),
+            Dense(12, activation='relu'),
+            Dense(12, activation='relu'),
+            Dense(20, activation='relu'),
+            Dense(1, activation='linear')
+        ],
+        name = 'model2'
+    )
+
+    # Define the architecture for the third model
+    model_3 = Sequential(
+        [
+            Dense(32, activation='relu'),
+            Dense(16, activation='relu'),
+            Dense(8, activation='relu'),
+            Dense(4, activation='relu'),
+            Dense(12, activation='relu'),
+            Dense(1, activation='linear')
+        ],
+        name = 'model3'
+    )
+
+    # Combine all models into a list
+    model_list = [model_1, model_2, model_3]
+
+    # Return the list of models
+    return model_list
